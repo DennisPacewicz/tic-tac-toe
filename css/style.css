@@ -1,0 +1,60 @@
+body {
+	margin:0;
+	padding:0;
+	background:#222;
+	color:#eee;
+	font-family: Sans-Serif;	
+	letter-spacing: 1px
+}
+header {
+	padding:0 40px;
+}
+header h4 {
+	color:#3DF7FF;
+	font-weight:initial;
+	letter-spacing: 4px;
+	display:inline-block;
+	margin: 0 20px;
+}
+h1, h2, h3, h4, h5 {
+	font-weight:bold;
+	letter-spacing: 2px;
+	display:inline-block;
+	color:#efefef;
+}
+.content {
+	max-width:1080px;
+	min-width:600px;
+	margin: auto;
+}
+.tic-tac-toe{
+	margin:20px auto;
+	width:660px;
+}
+.tic-tac-toe .sq {
+	width:200px;
+	height:200px;
+	margin:10px;
+	float:left;
+	display:inline-block;
+}
+.tic-tac-toe .sq .space {
+	width:100%;
+	height:100%;
+	background:#444;
+    -webkit-transition: all 0.15s ease-in-out;
+    transition: all 0.15s ease-in-out;
+}
+.tic-tac-toe .sq .space:hover {
+    -ms-transform: scale(0.9); /* IE 9 */
+    -webkit-transform: scale(0.9); /* Safari */
+    transform: scale(0.9);
+	background:#444;
+}
+.tic-tac-toe .sq .space .active {
+	background:#eee;
+}
+.piece{
+	padding:20px;
+}
+
