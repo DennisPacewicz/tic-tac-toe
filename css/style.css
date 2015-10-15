@@ -10,11 +10,19 @@ header {
 	padding:0 40px;
 }
 header h4 {
+	color:#fff;
+	font-weight:initial;
+	letter-spacing: 4px;
+	display:inline-block;
+	margin: 0 20px;
+}
+header h4 a {
 	color:#3DF7FF;
 	font-weight:initial;
 	letter-spacing: 4px;
 	display:inline-block;
 	margin: 0 20px;
+	text-decoration:none;	
 }
 h1, h2, h3, h4, h5 {
 	font-weight:bold;
@@ -26,6 +34,14 @@ h1, h2, h3, h4, h5 {
 	max-width:1080px;
 	min-width:600px;
 	margin: auto;
+}
+#prompt {
+	width:640px;
+	margin:auto;
+	color:#eee;
+	font-size:26px;
+	text-align:center;
+	font-weight:bold;
 }
 .tic-tac-toe{
 	margin:20px auto;
@@ -57,4 +73,3 @@ h1, h2, h3, h4, h5 {
 .piece{
 	padding:20px;
 }
-

@@ -1,6 +1,7 @@
 var grid = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 var turn = true;
 var play = true;
+var delay = 3000;
 var cross = "<svg height=\"160.0\" width=\"160.0\" class=\"piece\">"+
       "<path d=\"M 25.0 25.0 l 110 110\" stroke=\"white\" stroke-width=\"32.0\" fill=\"none\"></path>"+
       "<path d=\"M 135.0 25.0 l -110 110\" stroke=\"white\" stroke-width=\"32.0\" fill=\"none\"></path></svg>";
@@ -8,6 +9,7 @@ var circle = "<svg height=\"160.0\" width=\"160.0\" class=\"piece\">"+
       "<circle cx=\"80\" cy=\"80\" r=\"50\" stroke=\"white\" stroke-width=\"32.0\" fill=\"none\" /></svg>";
 
 function selection(num){
+	checkTurn();
 	if(play){
 		if(num != 0){
 			if(turn){
@@ -47,12 +49,22 @@ function winCheck(){
 		cmp(0,4,8);
 		cmp(2,4,6);
 
+
 	if(grid.indexOf(0) < 0){ // no more moves
-		setTimeout(reset,4000);
+		if(play){
+			document.getElementById("prompt").innerHTML = "it's a draw";
+		}
+		setTimeout(reset,delay);
 	}
 }
-
-function cmp(n1, n2, n3){
+function checkTurn(){
+	if(turn){
+		document.getElementById("prompt").innerHTML = "player 1's turn";
+	} else {
+		document.getElementById("prompt").innerHTML = "player 2's turn";
+	}
+}
+function cmp(n1, n2, n3){ // compare spaces
 	if(grid[n1] == grid[n2] && grid[n1] == grid[n3]){
 		if(grid[n1] != 0){
 			document.getElementById(n1+1).style.cssText = 'background:#7cc0b0;';
@@ -66,8 +78,8 @@ function cmp(n1, n2, n3){
 function winner(id){
 		console.log("player "+id+" wins.");
 		play = false;
-		setTimeout(reset,4000);	
-
+		document.getElementById("prompt").innerHTML = "player "+id+" wins!";
+		setTimeout(reset,delay);	
 }
 
 function reset(){
@@ -76,5 +88,6 @@ function reset(){
 		document.getElementById(i).style.cssText = 'background:#444;';
 		document.getElementById(i).innerHTML = "";
 	}
+	checkTurn();
 	play = true;
 }
