@@ -9,18 +9,17 @@ var circle = "<svg height=\"160.0\" width=\"160.0\" class=\"piece\">"+
       "<circle cx=\"80\" cy=\"80\" r=\"50\" stroke=\"white\" stroke-width=\"32.0\" fill=\"none\" /></svg>";
 
 function selection(num){
-	checkTurn();
 	if(play){
 		if(num != 0){
 			if(turn){
-				if(grid[num-1] != 2){
+				if(grid[num-1] == 0){
 					grid[num-1] = 1;
 					document.getElementById(num).style.cssText = 'background:#ccc;';
 					document.getElementById(num).innerHTML = cross;
 					turn = false;
 				}
 			} else {
-				if(grid[num-1] != 1){
+				if(grid[num-1] == 0){
 					grid[num-1] = 2;
 					document.getElementById(num).style.cssText = 'background:#000;';
 					document.getElementById(num).innerHTML = circle;
@@ -28,7 +27,8 @@ function selection(num){
 				}
 			}
 		} 
-
+		checkTurn();
+		console.log(turn);
 		console.log(grid);
 		winCheck();
 	}
